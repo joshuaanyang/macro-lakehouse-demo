@@ -13,6 +13,9 @@ spark.sql("USE workspace.macro_demo")
 
 # MAGIC %sql
 # MAGIC DESCRIBE HISTORY silver_fred;
+
+# COMMAND ----------
+# MAGIC %sql
 # MAGIC SELECT COUNT(*) FROM silver_fred VERSION AS OF 0;
 
 # COMMAND ----------
