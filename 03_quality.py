@@ -29,9 +29,16 @@ checks.append(("rates_in_range", bad_rates == 0, bad_rates))
 stale = (s.groupBy("series_id")
   .agg(F.max("obs_date").alias("last_date"))
   .join(m,"series_id")
-  .filter("(frequency = 'daily' AND datediff(current_date(), last_date) > 12) OR" "(frequency = 'monthly' AND datediff(current_date(), last_date) > 75) ")
+  .filter(F.datediff(F.current_date(), "last_date") > F.col('max_staleness_days'))
   .count())
 checks.append(("data_is_fresh", stale == 0, stale))
+
+# COMMAND ----------
+
+expected = {r.series_id for r in m.select("series_id").collect()}
+present  = {r.series_id for r in s.select("series_id").distinct().collect()}
+missing  = expected - present
+checks.append(("all_expected_series_present", len(missing) == 0, len(missing)))
 
 # COMMAND ----------
 
