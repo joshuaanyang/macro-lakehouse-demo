@@ -13,3 +13,6 @@ Next: Auto Loader for incremental files, Lakeflow declarative pipelines with
 expectations,
 real release-date vintages (ALFRED), news ingestion with embeddings for agent
 search.
+
+![Uploading image.png…]()
+
