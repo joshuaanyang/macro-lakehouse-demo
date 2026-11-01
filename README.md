@@ -14,5 +14,6 @@ expectations,
 real release-date vintages (ALFRED), news ingestion with embeddings for agent
 search.
 
-![Uploading image.png…]()
+<img width="1713" height="681" alt="image" src="https://github.com/user-attachments/assets/da79e21a-f5bc-4f30-b4d4-85627cd7f7a4" />
+
 
